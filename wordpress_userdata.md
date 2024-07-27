@@ -20,6 +20,6 @@ touch healthstatus
 sed -i "s/localhost/devtankdb.c3m0wu4iwvc5.us-west-1.rds.amazonaws.com/g" wp-config.php
 sed -i "s/username_here/ruth/g" wp-config.php
 sed -i "s/password_here/Welber923007!/g" wp-config.php
-sed -i "s/database_name_here/devtankdb/g" wp-config.php
+sed -i "s/database_name_here/wordpressdb/g" wp-config.php
 sudo chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 sudo systemctl restart httpd
