@@ -10,6 +10,7 @@ sudo yum module enable php:remi-7.4 -y
 sudo yum install -y php php-common php-mbstring php-opcache php-intl php-xml php-gd php-curl php-mysqlnd php-fpm php-json
 sudo systemctl start php-fpm
 sudo systemctl enable php-fpm
+cd ~
 git clone https://github.com/alagbaski/tooling.git
 mkdir /var/www/html
 sudo cp -R tooling/html/*  /var/www/html/
