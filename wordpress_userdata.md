@@ -1,6 +1,6 @@
 #!/bin/bash
 mkdir /var/www/
-sudo mount -t efs -o tls,accesspoint=fsap-0db2bb8c938ccfc6d fs-0abadbc7b32b96fd0:/ /var/www/
+sudo mount -t efs -o tls,accesspoint=fsap-07f49c555c9ed930e fs-094122548e6a2a4ec:/ /var/www/
 yum install -y httpd 
 systemctl start httpd
 systemctl enable httpd
@@ -17,8 +17,8 @@ mkdir /var/www/html/
 sudo cp -R /wordpress/* /var/www/html/
 cd /var/www/html/
 sudo touch healthstatus
-sed -i "s/localhost/devtank-db.c3m0wu4iwvc5.us-west-1.rds.amazonaws.com/g" wp-config.php 
-sed -i "s/username_here/ruth/g" wp-config.php 
+sed -i "s/localhost/devtankdb.c3m0wu4iwvc5.us-west-1.rds.amazonaws.com/g" wp-config.php 
+sed -i "s/username_here/timi/g" wp-config.php 
 sed -i "s/password_here/Welber923007!/g" wp-config.php 
 sed -i "s/database_name_here/wordpressdb/g" wp-config.php 
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R
