@@ -11,12 +11,11 @@ systemctl start php-fpm
 systemctl enable php-fpm
 git clone https://github.com/alagbaski/tooling.git
 mkdir /var/www/html
-sudo cp -rf tooling/html/*  /var/www/html/
 cd tooling
-mysql -h devtank-db.cz6ksuqwosgs.us-east-1.rds.amazonaws.com -u mark -p Forget00! toolingdb < tooling-db.sql
-cd /home/ec2-user
-sudo touch healthstatus
+mysql -h devtank-db.cz6ksuqwosgs.us-east-1.rds.amazonaws.com -u mark -pForget00! toolingdb < tooling-db.sql
+sudo cp -rf tooling/html/*  /var/www/html/
 cd /var/www/html
+sudo touch healthstatus
 sudo sed -i "s/$db = mysqli_connect('mysql.tooling.svc.cluster.local', 'admin', 'admin', 'tooling');/$db = mysqli_connect('devtank-db.cz6ksuqwosgs.us-east-1.rds.amazonaws.com', 'mark', 'Forget00!', 'toolingdb');/g" functions.php
 chcon -t httpd_sys_rw_content_t /var/www/html/ -R
 sudo systemctl restart httpd
